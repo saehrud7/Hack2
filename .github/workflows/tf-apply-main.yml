@@ -46,7 +46,7 @@ jobs:
       id: check 
       run: |
         echo ${{ env.ACCOUNT_ID }}
-        aws s3api head-object --bucket do-not-delete-awsgoat-state-files-${{ env.ACCOUNT_ID }} --key terraform.tfstate
+        aws s3api head-object --bucket do-not-delete-awsgoat-state-files-dk-94 --key terraform.tfstate
       continue-on-error: true
 
     - name: Exit if previous deployment exists
@@ -91,7 +91,7 @@ jobs:
       if: always()
       run: |
         cd modules/${{ github.event.inputs.module }}
-        aws s3 cp ./terraform.tfstate s3://do-not-delete-awsgoat-state-files-${{ env.ACCOUNT_ID }}/terraform.tfstate 
+        aws s3 cp ./terraform.tfstate s3://do-not-delete-awsgoat-state-files-dk-94/terraform.tfstate 
 
     # Terraform Output the API Gateway url
     - name: Application URL
