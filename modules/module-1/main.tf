@@ -3489,11 +3489,11 @@ resource "aws_security_group" "goat_sg" {
 
 # Instance Requirements
 resource "aws_iam_instance_profile" "goat_iam_profile" {
-  name = "AWS_GOAT_ec2_profile_94_v3"
+  name = "AWS_GOAT_ec2_profile_94_v4"
   role = aws_iam_role.goat_role.name
 }
 resource "aws_iam_role" "goat_role" {
-  name               = "AWS_GOAT_ROLE_94_v3"
+  name               = "AWS_GOAT_ROLE_94_v4"
   path               = "/"
   assume_role_policy = <<EOF
 {
