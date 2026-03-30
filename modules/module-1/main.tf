@@ -3192,7 +3192,7 @@ locals {
 
 /* Creating a S3 Bucket for webfiles files upload. */
 resource "aws_s3_bucket" "bucket_upload" {
-  bucket        = "production-blog-awsgoat-bucket-${data.aws_caller_identity.current.account_id}"
+  bucket        = "production-blog-awsgoat-bucket-dk-94"
   force_destroy = true
   tags = {
     Name        = "Production bucket"
@@ -3278,7 +3278,7 @@ resource "aws_s3_object" "upload_folder_prod" {
 
 #Development bucket
 resource "aws_s3_bucket" "dev" {
-  bucket = "dev-blog-awsgoat-bucket-${data.aws_caller_identity.current.account_id}"
+  bucket = "dev-blog-awsgoat-bucket-dk-94"
 
   tags = {
     Name        = "Development bucket"
@@ -3358,7 +3358,7 @@ resource "aws_s3_object" "upload_folder_dev_2" {
 
 /* Creating a S3 Bucket for ec2-files upload. */
 resource "aws_s3_bucket" "bucket_temp" {
-  bucket        = "ec2-temp-bucket-${data.aws_caller_identity.current.account_id}"
+  bucket        = "ec2-temp-bucket-dk-94"
   force_destroy = true
 
   tags = {
@@ -3417,7 +3417,7 @@ resource "aws_s3_object" "upload_temp_object_2" {
 }
 /* Creating a S3 Bucket for Terraform state file upload. */
 resource "aws_s3_bucket" "bucket_tf_files" {
-  bucket        = "do-not-delete-awsgoat-state-files-${data.aws_caller_identity.current.account_id}"
+  bucket        = "do-not-delete-awsgoat-state-files-dk-94"
   force_destroy = true
   tags = {
     Name        = "Do not delete Bucket"
@@ -3598,7 +3598,7 @@ data "aws_ami" "goat_ami" {
 
 resource "aws_instance" "goat_instance" {
   ami                  = data.aws_ami.goat_ami.id
-  instance_type        = "t2.micro"
+  instance_type        = "t3.micro"
   iam_instance_profile = aws_iam_instance_profile.goat_iam_profile.name
   subnet_id            = aws_subnet.goat_subnet.id
   security_groups      = [aws_security_group.goat_sg.id]
